@@ -5,6 +5,7 @@ const cors = require('cors');
 
 const app = express();
 app.use(cors());
+const PORT = process.env.PORT || 5000;
 
 const server = http.createServer(app);
 const io = new Server(server, {
@@ -36,6 +37,6 @@ io.on('connection', (socket) => {
 });
 
 
-server.listen(5000, () => {
-    console.log('Signaling Server running on port 5000!');
+server.listen(PORT, () => {
+    console.log(`Signaling Server running on port ${PORT}!`);
 });
